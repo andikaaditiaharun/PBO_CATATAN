@@ -1,0 +1,287 @@
+class dan object 
+Class adalah sebuah wadah yg dibuat untuk menciptakan suatu object, class
+Merupakan kerangka dasar dari objek yang akan diciptakan, yang mendefinisikan data (property) dan method dari objek. Contoh penamaan kelas: Mobil, Laptop, Anggota, Buku, dll
+Objek adalah suatu aplikasi objek mempunyai attribut dan method.
+
+Class orang:
+           def __init__(self, nama):
+                  self.nama = nama
+
+class mahasiswa :
+		def__init__(self, nama, nim): 
+                                    self.nama = nama
+                           def tampilkan(self):
+                                    print(‘Nama mahasiswa :’, self.nama)
+                                    print(‘NPM :’, self.nim)
+ 
+
+
+Attribute adalah suatu data yang dapat beri informasi kelas atau objek dimana attribut tersebut berada. Dalam sebuah class, atribut disebut sebagai variable contohnya :
+
+
+class mahasiswa :
+		def__init__(self, nama, nim): 
+                                    self.nama = nama
+                           def tampilkan(self):
+                                    print(‘Nama mahasiswa :’, self.nama)
+                                    print(‘NPM :’, self.nim)
+
+
+Method adalah prosedur atau fungsi yang bergabung dalam objek bersama dengan attribut. Method ini digunakan untuk pengaksesan terhadap data yang terdapat dalam objek tersebut.
+
+examples
+class Orang:
+    def __init__(self,nama,tempat,tanggal_lahir,bulan_lahir, tahun_lahir):
+        self.nama=nama
+        self.tempat=tempat
+        self.tanggal_lahir=tanggal_lahir
+        self.bulan_lahir=bulan_lahir
+        self.tahun_lahir=tahun_lahir
+    def perkenalkan_diri(self):
+        print("hello, nama saya "," ", self.nama)
+    def umur_sekarang(self):
+        self.umur=2018-self.tahun_lahir
+        print("umur sekarang:",self.umur)
+    def prediksi_umur(self):
+        if(self.tanggal_lahir>=2):
+            self.umur=2018-self.tahun_lahir
+            print("umur prediksi:",self.umur)
+        else:
+            self.umur=(2018-self.tahun_lahir)-1
+            print("umur prediksi:",self.umur)
+class Mahasiswa(Orang):
+    def __init__(self,nama,tempat,tanggal_lahir,bulan_lahir, tahun_lahir,jenjangp,jurusan,perguruan,tahun_lulus,ipk):
+        print ("====================BIODATA========================")
+        Orang.__init__(self,nama,tempat,tanggal_lahir,bulan_lahir, tahun_lahir)
+        self.jenjangp=jenjangp
+        self.jurusan=jurusan
+        self.perguruan=perguruan
+        self.tahun_lulus=tahun_lulus
+        self.ipk=ipk
+    def prints(self):
+        print("nama:",self.nama)
+        print("tempat",self.tempat)
+        print("tanggal lahir:",self.tanggal_lahir,"-",self.bulan_lahir,"-",self.tahun_lahir)
+        Orang.umur_sekarang(self)
+        print("jenjang pendidikan:",self.jenjangp)
+        print("perguruan tinggi:",self.perguruan)
+        print("tahun lulus:",self.tahun_lulus)
+        print("IPK:",self.ipk)
+    
+orang=Orang("Andika","bangkalan",27,3,1997)
+orang.perkenalkan_diri()
+orang.umur_sekarang()
+orang.prediksi_umur()
+
+mhs=Mahasiswa("Andika","bangkalan",27,3,1997,"S1","Teknik informatika","Universitas Trunojoyo Madura",2020,3.90)
+mhs.prints()
+
+example 2:
+class Orang:
+    def __init__(self, nama):
+        self.nama = nama
+        
+class Mahasiswa(Orang):
+    def __init__(self, nama, kelas, npm, semester):
+        self.nama = nama
+        self.kelas = kelas
+        self.npm = npm
+        self.semester = semester
+
+    def tampilkan(self):
+        print('Nama mahasiswa:', self.nama)
+        print('Kelas:', self.kelas)
+        print('NPM:', self.npm)
+        print('Semester:', self.semester)
+
+class Pegawai(Orang):
+    nip = ''
+
+class Dosen(Pegawai):
+    def __init__(self, nama, nip, nidn):
+        self.nama = nama
+        self.nip = nip
+        self.nidn = nidn
+
+    def tampilkan(self):
+        print('Nama Dosen:', self.nama)
+        print('NIP:', self.nip)
+        print('NIDN:', self.nidn)
+
+class Karyawan(Pegawai):
+    def __init__(self, nama, nip):
+        self.nama = nama
+        self.nip = nip
+
+    def tampilkan(self):
+        print('Nama:', self.nama)
+        print('NIP:', self.nip)
+
+mahasiswa1 = Mahasiswa('Ahmad', 'PBO - B', '160411100167', 'V')
+mahasiswa1.tampilkan()
+print('---')
+mahasiswa2 = Mahasiswa('Andika Aditya harun', 'PBO - B', '160411100168', 'V')
+mahasiswa2.tampilkan()
+print('---')
+dosen1 = Dosen('Kurnia', '199805312012031001', '72369191237')
+dosen1.tampilkan()
+print('---')
+karyawan1 = Karyawan('Cahyono', '1954878884455225')
+karyawan1.tampilkan()
+
+Inheritance, Proses pewarian data dan method dari suatu kelas kepada kelas lain. Kelas yang mewariskan disebut super class, sedangkan kelas yang diwariskan sering disebut sub class. Dengan inheritance, class yang baru (subclass) akan mirip dengan class yang lama (superclass) namun memiliki karakter yang baru. 
+class User:
+    def __init__(self, fname, lname):
+        self.fname = fname
+        self.lname = lname
+
+    def printFistName(self):
+        print('Fist name:', self.fname)
+
+    def printLastName(self):
+         print('Last name:', self.lname)
+
+    def printFullName(self):
+         print('Full name:', self.fname, self.lname)
+        
+class Programmer(User):
+    def doPython(self):
+    print('Programing Python')
+
+objek1 = User('Ahmad', '-')
+objek1.printFistName()
+objek1.printLastName()
+objek1.printFullName()
+print('---')
+objek2 = Programmer('Andika', 'Aditia Harun')
+objek2.printFistName()
+objek2.printLastName()
+objek2.printFullName()
+objek2.doPython()
+
+
+
+
+
+Type inheritance:
+superclass >> kalo butuh di anak btuh properti khusus beda dgn anakny(menambahkan)
+multiple default >> memanggil class yg tdak ada
+ super>> menambah property
+ multiple>mwarisi properti metod or properti
+ default >. smua diwariskan ke anakny tanpa menambahkan
+ overide>> sifat dri anakny or nilai properti dri anakny menyamakan induk 
+ super jika atribut dri anak spesifik maka saya hrus variablesuper anak utk mengamnil atribut 
+ mengkombinasikan 2 parent or lebih
+class Fish: 
+    def __init__(self, first_name, last_name="Fish" ,skeleton"bone" ,eyelids = False): 
+        self.first_name = first_name 
+        self.last_name = last_name 
+        self.skeleton = skeleton
+        self.eyelids = eyelids
+    def swim(self): 
+        print("The fish is swimming.") 
+    def swim_backwards(self): 
+        print("The fish can swim backwards.")
+class shark:
+    def __init__(self, first_name, last_name="Shark" ,skeleton 'cartilage', eyelids = False): 
+        self.first_name = first_name 
+        self.last_name = last_name 
+        self.skeleton = skeleton
+        self.eyelids = eyelids
+    def swim_backwards(self)
+        print("the Shark cannot swim backward,but can sink backward ")
+hiu=shark("hiu besar")
+shark.swim backward()
+
+
+                                                                                  
+
+
+Overloading dan overriding
+Overloading Merupakan Suatu Function yang memiliki parameter , dan function tersebut dapat memiliki nama function yang sama dengan yang lainnya dengan syarat jumlah parameter berbeda
+Operator overloading adalah menampakkan operatornya yg banyak artinya
+Method overloading adalah method dengan multiple cara, memanggilnya boleh dengan beda parameter atau dengan function. Pada method overloading perbedaan parameter mencakup :Jumlah parameter,Tipe data dari parameter,Urutan dari tipe data parameter.
+Contoh program:
+class Vektor:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b     
+    def __str__(self):
+        return 'Vektor (%d, %d)' % (self.a, self.b)
+    def _add__(self, other):
+        return Vektor(self.a + other.a, self.b + other.b)
+v1 = Vektor (5,4)
+v2 = Vektor (7, -2)
+print (1)
+print (v2)
+print (v1 + v2)
+Overriding
+Overriding Merupakan Suatu Keadaan Dimana kelas anak dapat mengubah atau bisa  dibilang memodifikasi atau memperluas data dan method pada kelas induk
+Keuntungan Overriding : dapat menambahkan sifat / atribut pada kelas induk nyaBerikut ini contoh overriding :
+Isi program
+class Rectangle():
+	def __init__(self,length,breadth):
+		self.length = length
+		self.breadth = breadth
+
+	def getArea(self):
+		print (self.length*self.breadth," is area of rectangle")
+
+class Square(Rectangle):
+	def __init__(self,side):
+		self.side = side
+		Rectangle.__init__(self,side,side)
+
+	def getArea(self):
+		print (self.side*self.side," is area of square")
+
+s = Square(4)
+r = Rectangle(2,4)
+
+s.getArea()
+r.getArea()
+
+Polymorphisme
+Polymorphism, suatu pemrogram menyampaikan pesan tertentu keluar dari hirarki obyeknya, dimana obyek yang berbeda memberikan tanggapan/respon terhadap pesan yang sama sesuai dengan sifat masing-masing obyek Atau Polymorphic dapat berarti banyak bentuk, maksudnya yaitu kita dapat menimpa (override), suatu method, yang berasal dari parent class (super class) dimana object tersebut diturunkan, sehingga memiliki kelakuan yang berbeda.
+
+def in_the_pacific(fish): 
+	fish.swim() 
+sammy = Shark() 
+casey = Clownfish() 
+in_the_pacific(sammy) 
+in_the_pacific(casey)
+With metod
+sammy = Shark()
+casey = Clownfish()
+for fish in (sammy, casey):
+    fish.swim()
+    fish.swim_backwards()
+    fish.skeleton()
+
+Enkapsulasi = Pembungkusan , maksudnya di sini semua objek yang kita definisikan / bisa juga informasi kita sembunyikan di dalam enkapsulasi tersebut agar tidak dapat dibaca oleh kelas lain yang tidak berhak membacanya. maksudnya secara lebih jelas agar memastikan agar object hanya dapat di ubah oleh object yang mendapat ijin untuk mengubahnya , bila tidak memiliki ijin maka tidak dapat mengubahnya atau membacanya.
+class Fraction:
+    def __init__(self,top,bottom):
+        self.num = top
+        self.den = bottom
+    #def show(self):
+    #    print(self.num,"/",self.den)
+  def __str__(self):
+        return str(self.num)+"/"+str(self.den)
+   f=Fration(2,4)
+Show(f)
+ print(f)
+def __add__(self,otherfraction):
+        newnum = self.num*otherfraction.den + self.den*otherfraction.num
+        newden = self.den * otherfraction.den
+        return Fraction(newnum,newden)
+f1 = Fraction(1,4)
+f2 = Fraction(1,2)
+print(f1+f2)
+
+tambahan
+Constructor 
+Suatumethodyangpertamakali Suatu method yang pertama kali dijalankan pada saat pembuatan suatu obyekKonstruktormempunyaiciriyaitu: obyek. Konstruktor mempunyai ciri yaitu : –mempunyai nama yang sama dengan nama class class –tidak mempunyai modifier (seperti void, int, doubledll) double dll)
+
+Overloading Constructor
+Suatuclassdapatmempunyailebihdari1 Suatuclass dapatmempunyailebihdari1 konstruktordengansyaratdaftarparameternya tidakbolehadayang sama
+
